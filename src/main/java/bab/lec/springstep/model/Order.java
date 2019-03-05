@@ -7,19 +7,19 @@ import java.time.LocalDate;
 
 public class Order {
     private int orderId;
-    private int productId;
-    private int clientId;
-    private String dateOfSale;
+    private Client client;
+    private Product product;
+    private LocalDate dateOfSale;
     private LocalDate dateOfDelivery;
     private int quantity;
 
     public Order() {
     }
 
-    public Order(int saleId, int productId, int clientId, String dateOfSale, LocalDate dateOfDelivery, int quantity) {
+    public Order(int saleId, Product product, Client client, LocalDate dateOfSale, LocalDate dateOfDelivery, int quantity) {
         this.orderId = saleId;
-        this.productId = productId;
-        this.clientId = clientId;
+        this.product = product;
+        this.client = client;
         this.dateOfSale = dateOfSale;
         this.dateOfDelivery = dateOfDelivery;
         this.quantity = quantity;
@@ -27,12 +27,12 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Sale{" +
-                "saleId=" + orderId +
-                ", productId=" + productId +
-                ", clientId=" + clientId +
-                ", dateOfSale='" + dateOfSale + '\'' +
-                ", dateOfDelivery='" + dateOfDelivery + '\'' +
+        return "Order{" +
+                "orderId=" + orderId +
+                ", client=" + client +
+                ", product=" + product +
+                ", dateOfSale=" + dateOfSale +
+                ", dateOfDelivery=" + dateOfDelivery +
                 ", quantity=" + quantity +
                 '}';
     }

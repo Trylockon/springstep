@@ -1,7 +1,7 @@
 package bab.lec.springstep.model;
 
 public class Product {
-    private String id;
+    private String productId;
     private  String productName;
     private double price;
     private String measure;
@@ -10,8 +10,8 @@ public class Product {
     public Product() {
     }
 
-    public Product(String id, String productName, double price, String measure, int valueOfMeasure) {
-        this.id = id;
+    public Product(String productId, String productName, double price, String measure, int valueOfMeasure) {
+        this.productId = productId;
         this.productName = productName;
         this.price = price;
         this.measure = measure;
@@ -21,7 +21,7 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "id='" + id + '\'' +
+                "productId='" + productId + '\'' +
                 ", productName='" + productName + '\'' +
                 ", price=" + price +
                 ", measure='" + measure + '\'' +

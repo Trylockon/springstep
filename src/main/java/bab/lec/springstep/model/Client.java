@@ -1,8 +1,8 @@
 package bab.lec.springstep.model;
 
 public class Client {
- private String id;
- private String name;
+ private String clientId;
+ private String clientName;
  private String dateOfBirth;
  private int phoneNumber;
  private String email;
@@ -10,9 +10,9 @@ public class Client {
  public Client() {
  }
 
- public Client(String id, String name, String dateOfBirth, int phoneNumber, String email) {
-  this.id = id;
-  this.name = name;
+ public Client(String clientId, String clientName, String dateOfBirth, int phoneNumber, String email) {
+  this.clientId = clientId;
+  this.clientName = clientName;
   this.dateOfBirth = dateOfBirth;
   this.phoneNumber = phoneNumber;
   this.email = email;
@@ -21,8 +21,8 @@ public class Client {
  @Override
  public String toString() {
   return "Client{" +
-          "id='" + id + '\'' +
-          ", name='" + name + '\'' +
+          "id='" + clientId + '\'' +
+          ", name='" + clientName + '\'' +
           ", dateOfBirth='" + dateOfBirth + '\'' +
           ", phoneNumber=" + phoneNumber +
           ", email='" + email + '\'' +
