@@ -1,8 +1,13 @@
 package bab.lec.springstep.model;
 
+import org.springframework.core.annotation.Order;
+import org.springframework.data.annotation.Id;
+
 import java.util.Objects;
 
+@Order
 public class OrderBook {
+    @Id
     private String entryId;
     private Sale sale;
 

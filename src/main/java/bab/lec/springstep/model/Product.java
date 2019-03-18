@@ -1,8 +1,13 @@
 package bab.lec.springstep.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.Objects;
 
+@Document
 public class Product {
+    @Id
     private String productId;
     private  String productName;
     private double price;

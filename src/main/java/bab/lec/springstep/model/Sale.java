@@ -1,10 +1,15 @@
 package bab.lec.springstep.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.text.DateFormat;
 import java.time.LocalDate;
 import java.util.Objects;
 
+@Document
 public class Sale {
+    @Id
     private String saleId;
     private String productId;
     private String clientId;

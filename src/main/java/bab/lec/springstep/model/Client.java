@@ -1,9 +1,14 @@
 package bab.lec.springstep.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
+@Document
 public class Client {
+ @Id
  private String clientId;
  private String name;
  private LocalDate dateOfBirth;
