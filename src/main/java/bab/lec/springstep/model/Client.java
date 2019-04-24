@@ -9,22 +9,22 @@ import java.util.Objects;
 @Document
 public class Client {
  @Id
- private String clientId;
+ private String id;
  private String name;
  private LocalDate dateOfBirth;
- private long phoneNumber;
+ private int phoneNumber;
  private String email;
  private OrderBook orderBook;
 
  public Client(Client client) {
  }
 
- public String getClientId() {
-  return clientId;
+ public String getId() {
+  return id;
  }
 
- public void setClientId(String clientId) {
-  this.clientId = clientId;
+ public void setId(String id) {
+  this.id = id;
  }
 
  public String getName() {
@@ -43,7 +43,7 @@ public class Client {
   this.dateOfBirth = dateOfBirth;
  }
 
- public long getPhoneNumber() {
+ public int getPhoneNumber() {
   return phoneNumber;
  }
 
@@ -67,8 +67,8 @@ public class Client {
   this.orderBook = orderBook;
  }
 
- public Client(String clientId, String name, LocalDate dateOfBirth, long phoneNumber, String email) {
-  this.clientId = clientId;
+ public Client(String id, String name, LocalDate dateOfBirth, int phoneNumber, String email) {
+  this.id = id;
   this.name = name;
   this.dateOfBirth = dateOfBirth;
   this.phoneNumber = phoneNumber;
@@ -78,7 +78,7 @@ public class Client {
  @Override
  public String toString() {
   return "Client{" +
-          "clientId='" + clientId + '\'' +
+          "id='" + id + '\'' +
           ", name='" + name + '\'' +
           ", dateOfBirth=" + dateOfBirth +
           ", phoneNumber=" + phoneNumber +
@@ -87,7 +87,7 @@ public class Client {
           '}';
  }
 
- public Client(String name, LocalDate dateOfBirth, long phoneNumber, String email, OrderBook orderBook) {
+ public Client(String name, LocalDate dateOfBirth, int phoneNumber, String email, OrderBook orderBook) {
   this.name = name;
   this.dateOfBirth = dateOfBirth;
   this.phoneNumber = phoneNumber;
@@ -95,15 +95,15 @@ public class Client {
   this.orderBook = orderBook;
  }
 
- public Client(String name, LocalDate dateOfBirth, long phoneNumber, String email) {
+ public Client(String name, LocalDate dateOfBirth, int phoneNumber, String email) {
   this.name = name;
   this.dateOfBirth = dateOfBirth;
   this.phoneNumber = phoneNumber;
   this.email = email;
  }
 
- public Client(String clientId, String name, LocalDate dateOfBirth, long phoneNumber, String email, OrderBook orderBook) {
-  this.clientId = clientId;
+ public Client(String id, String name, LocalDate dateOfBirth, int phoneNumber, String email, OrderBook orderBook) {
+  this.id = id;
   this.name = name;
   this.dateOfBirth = dateOfBirth;
   this.phoneNumber = phoneNumber;
@@ -119,12 +119,12 @@ public class Client {
   if (this == o) return true;
   if (!(o instanceof Client)) return false;
   Client client = (Client) o;
-  return getClientId().equals(client.getClientId());
+  return getId().equals(client.getId());
  }
 
  @Override
  public int hashCode() {
-  return Objects.hash(getClientId());
+  return Objects.hash(getId());
  }
 }
 

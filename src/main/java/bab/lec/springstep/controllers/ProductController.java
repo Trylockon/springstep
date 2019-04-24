@@ -40,7 +40,7 @@ public class ProductController {
     public String addStudent(Model model, @ModelAttribute("productForm") ProductForm productForm){
         Product newProduct = new Product(productForm.getId(), productForm.getName(), productForm.getPrice(), productForm.getMeasure(), productForm.getValueOfMeasure());
         productService.create(newProduct);
-        model.addAttribute("students", productService.getAll());
+        model.addAttribute("products", productService.getAll());
         return "product";
     }
 

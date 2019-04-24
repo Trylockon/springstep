@@ -8,7 +8,7 @@ import java.util.Objects;
 @Document
 public class Product {
     @Id
-    private String Id;
+    private String id;
     private String name;
     private double price;
     private String measure;
@@ -18,7 +18,7 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "Id='" + Id + '\'' +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", measure='" + measure + '\'' +
@@ -43,11 +43,11 @@ public class Product {
     }
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public void setId(String id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
@@ -90,7 +90,7 @@ public class Product {
     }
 
     public Product(String id, String name, double price, String measure, int valueOfMeasure) {
-        Id = id;
+        this.id = id;
         this.name = name;
         this.price = price;
         this.measure = measure;

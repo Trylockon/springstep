@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add a product</title>
     <link rel="stylesheet"
           type="text/css" href="<@spring.url '/css/style.css'/>"/>
 </head>

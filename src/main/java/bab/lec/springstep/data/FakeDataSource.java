@@ -16,6 +16,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collector;
 
 @Configuration
 public class FakeDataSource {
@@ -81,6 +82,7 @@ public class FakeDataSource {
 
     @PostConstruct
     void init() {
+        clients.get(0).setOrderBook(orderBooks.get(0));
         productRepository.deleteAll();
         productRepository.saveAll(products);
         clientRepository.deleteAll();

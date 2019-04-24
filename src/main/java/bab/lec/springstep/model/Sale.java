@@ -12,7 +12,6 @@ public class Sale {
     @Id
     private String saleId;
     private Product product;
-    private Client client;
     private LocalDate dateOfSale;
     private LocalDate dateOfDelivery;
     private int quantity;
@@ -33,14 +32,6 @@ public class Sale {
 
     public void setProductId(Product productId) {
         this.product = productId;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
     }
 
     public LocalDate getDateOfSale() {
@@ -67,10 +58,9 @@ public class Sale {
         this.quantity = quantity;
     }
 
-    public Sale(String saleId, Product product, Client client, LocalDate dateOfSale, LocalDate dateOfDelivery, int quantity) {
+    public Sale(String saleId, Product product, LocalDate dateOfSale, LocalDate dateOfDelivery, int quantity) {
         this.saleId = saleId;
         this.product = product;
-        this.client = client;
         this.dateOfSale = dateOfSale;
         this.dateOfDelivery = dateOfDelivery;
         this.quantity = quantity;
@@ -92,7 +82,6 @@ public class Sale {
         return "Sale{" +
                 "saleId='" + saleId + '\'' +
                 ", product=" + product +
-                ", client=" + client +
                 ", dateOfSale=" + dateOfSale +
                 ", dateOfDelivery=" + dateOfDelivery +
                 ", quantity=" + quantity +
@@ -101,7 +90,6 @@ public class Sale {
 
     public Sale(Product product, Client client, LocalDate dateOfSale, LocalDate dateOfDelivery, int quantity) {
         this.product = product;
-        this.client = client;
         this.dateOfSale = dateOfSale;
         this.dateOfDelivery = dateOfDelivery;
         this.quantity = quantity;
