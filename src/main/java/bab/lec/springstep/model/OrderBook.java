@@ -31,17 +31,21 @@ public class OrderBook {
     public OrderBook() {
     }
 
-    public OrderBook(String entryId, Sale sale) {
-        this.entryId = entryId;
-        this.sale = sale;
-    }
-
     @Override
     public String toString() {
         return "OrderBook{" +
                 "entryId='" + entryId + '\'' +
                 ", sale=" + sale +
                 '}';
+    }
+
+    public OrderBook(Sale sale) {
+        this.sale = sale;
+    }
+
+    public OrderBook(String entryId, Sale sale) {
+        this.entryId = entryId;
+        this.sale = sale;
     }
 
     @Override

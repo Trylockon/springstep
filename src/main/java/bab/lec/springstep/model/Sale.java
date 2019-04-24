@@ -11,8 +11,8 @@ import java.util.Objects;
 public class Sale {
     @Id
     private String saleId;
-    private String productId;
-    private String clientId;
+    private Product product;
+    private Client client;
     private LocalDate dateOfSale;
     private LocalDate dateOfDelivery;
     private int quantity;
@@ -27,20 +27,20 @@ public class Sale {
         this.saleId = saleId;
     }
 
-    public String getProductId() {
-        return productId;
+    public Product getProductId() {
+        return product;
     }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
+    public void setProductId(Product productId) {
+        this.product = productId;
     }
 
-    public String getClientId() {
-        return clientId;
+    public Client getClient() {
+        return client;
     }
 
-    public void setClientId(String clientId) {
-        this.clientId = clientId;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     public LocalDate getDateOfSale() {
@@ -67,10 +67,10 @@ public class Sale {
         this.quantity = quantity;
     }
 
-    public Sale(String saleId, String productId, String clientId, LocalDate dateOfSale, LocalDate dateOfDelivery, int quantity) {
+    public Sale(String saleId, Product product, Client client, LocalDate dateOfSale, LocalDate dateOfDelivery, int quantity) {
         this.saleId = saleId;
-        this.productId = productId;
-        this.clientId = clientId;
+        this.product = product;
+        this.client = client;
         this.dateOfSale = dateOfSale;
         this.dateOfDelivery = dateOfDelivery;
         this.quantity = quantity;
@@ -80,23 +80,31 @@ public class Sale {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Sale)) return false;
+        Sale sale = (Sale) o;
+        return getSaleId().equals(sale.getSaleId());
+    }
+
+    @Override
     public String toString() {
         return "Sale{" +
                 "saleId='" + saleId + '\'' +
-                ", productId='" + productId + '\'' +
-                ", clientId='" + clientId + '\'' +
+                ", product=" + product +
+                ", client=" + client +
                 ", dateOfSale=" + dateOfSale +
                 ", dateOfDelivery=" + dateOfDelivery +
                 ", quantity=" + quantity +
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Sale)) return false;
-        Sale sale = (Sale) o;
-        return getSaleId().equals(sale.getSaleId());
+    public Sale(Product product, Client client, LocalDate dateOfSale, LocalDate dateOfDelivery, int quantity) {
+        this.product = product;
+        this.client = client;
+        this.dateOfSale = dateOfSale;
+        this.dateOfDelivery = dateOfDelivery;
+        this.quantity = quantity;
     }
 
     @Override

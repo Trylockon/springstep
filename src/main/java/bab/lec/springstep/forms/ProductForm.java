@@ -1,4 +1,4 @@
-package bab.lec.springstep.model;
+package bab.lec.springstep.forms;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Objects;
 
 @Document
-public class Product {
+public class ProductForm {
     @Id
     private String Id;
     private String name;
@@ -17,7 +17,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "ProductForm{" +
                 "Id='" + Id + '\'' +
                 ", name='" + name + '\'' +
                 ", price=" + price +
@@ -26,14 +26,14 @@ public class Product {
                 '}';
     }
 
-    public Product() {
+    public ProductForm() {
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Product)) return false;
-        Product product = (Product) o;
+        if (!(o instanceof ProductForm)) return false;
+        ProductForm product = (ProductForm) o;
         return Objects.equals(getId(), product.getId());
     }
 
@@ -82,14 +82,14 @@ public class Product {
         this.valueOfMeasure = valueOfMeasure;
     }
 
-    public Product(String name, double price, String measure, int valueOfMeasure) {
+    public ProductForm(String name, double price, String measure, int valueOfMeasure) {
         this.name = name;
         this.price = price;
         this.measure = measure;
         this.valueOfMeasure = valueOfMeasure;
     }
 
-    public Product(String id, String name, double price, String measure, int valueOfMeasure) {
+    public ProductForm(String id, String name, double price, String measure, int valueOfMeasure) {
         Id = id;
         this.name = name;
         this.price = price;

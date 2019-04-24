@@ -4,9 +4,11 @@ import bab.lec.springstep.model.OrderBook;
 import bab.lec.springstep.repository.OrderBookRepository;
 import bab.lec.springstep.services.interfaces.OrderBook.IOrderBookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class OrderBookMongoServiceImpl implements IOrderBookService {
     @Autowired
     OrderBookRepository repository;

@@ -4,9 +4,11 @@ import bab.lec.springstep.model.Product;
 import bab.lec.springstep.repository.ProductRepository;
 import bab.lec.springstep.services.interfaces.Product.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProductMongoServiceImpl implements IProductService {
     @Autowired
     ProductRepository repository;

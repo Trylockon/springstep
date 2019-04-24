@@ -67,16 +67,12 @@ public class Client {
   this.orderBook = orderBook;
  }
 
- public Client(String clientId, String name, LocalDate dateOfBirth, long phoneNumber, String email, OrderBook orderBook) {
+ public Client(String clientId, String name, LocalDate dateOfBirth, long phoneNumber, String email) {
   this.clientId = clientId;
   this.name = name;
   this.dateOfBirth = dateOfBirth;
   this.phoneNumber = phoneNumber;
   this.email = email;
-  this.orderBook = orderBook;
- }
-
- public Client() {
  }
 
  @Override
@@ -89,6 +85,33 @@ public class Client {
           ", email='" + email + '\'' +
           ", orderBook=" + orderBook +
           '}';
+ }
+
+ public Client(String name, LocalDate dateOfBirth, long phoneNumber, String email, OrderBook orderBook) {
+  this.name = name;
+  this.dateOfBirth = dateOfBirth;
+  this.phoneNumber = phoneNumber;
+  this.email = email;
+  this.orderBook = orderBook;
+ }
+
+ public Client(String name, LocalDate dateOfBirth, long phoneNumber, String email) {
+  this.name = name;
+  this.dateOfBirth = dateOfBirth;
+  this.phoneNumber = phoneNumber;
+  this.email = email;
+ }
+
+ public Client(String clientId, String name, LocalDate dateOfBirth, long phoneNumber, String email, OrderBook orderBook) {
+  this.clientId = clientId;
+  this.name = name;
+  this.dateOfBirth = dateOfBirth;
+  this.phoneNumber = phoneNumber;
+  this.email = email;
+  this.orderBook = orderBook;
+ }
+
+ public Client() {
  }
 
  @Override
