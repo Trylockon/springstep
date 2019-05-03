@@ -10,7 +10,7 @@ import java.util.Objects;
 @Document
 public class Sale {
     @Id
-    private String saleId;
+    private String Id;
     private Product product;
     private LocalDate dateOfSale;
     private LocalDate dateOfDelivery;
@@ -19,19 +19,19 @@ public class Sale {
 
 
     public String getSaleId() {
-        return saleId;
+        return Id;
     }
 
-    public void setSaleId(String saleId) {
-        this.saleId = saleId;
+    public void setSaleId(String Id) {
+        this.Id = Id;
     }
 
     public Product getProductId() {
         return product;
     }
 
-    public void setProductId(Product productId) {
-        this.product = productId;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public LocalDate getDateOfSale() {
@@ -59,7 +59,7 @@ public class Sale {
     }
 
     public Sale(String saleId, Product product, LocalDate dateOfSale, LocalDate dateOfDelivery, int quantity) {
-        this.saleId = saleId;
+        this.Id = saleId;
         this.product = product;
         this.dateOfSale = dateOfSale;
         this.dateOfDelivery = dateOfDelivery;
@@ -80,7 +80,7 @@ public class Sale {
     @Override
     public String toString() {
         return "Sale{" +
-                "saleId='" + saleId + '\'' +
+                "saleId='" + Id + '\'' +
                 ", product=" + product +
                 ", dateOfSale=" + dateOfSale +
                 ", dateOfDelivery=" + dateOfDelivery +
