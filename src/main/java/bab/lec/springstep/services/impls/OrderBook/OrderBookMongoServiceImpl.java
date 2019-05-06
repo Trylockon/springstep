@@ -30,8 +30,8 @@ public class OrderBookMongoServiceImpl implements IOrderBookService {
     }
 
     @Override
-    public OrderBook delete(String id) {
-        return this.delete(id);
+    public void delete(String id) {
+        this.repository.deleteById(id);
     }
 
     @Override

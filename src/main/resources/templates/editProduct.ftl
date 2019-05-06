@@ -21,7 +21,7 @@
             <br>
             <h5 style="color:white;">Value of Measure:<@spring.formInput "productForm.valueOfMeasure" "" "text"/></h5>
             <br>
-            <input type="submit" value="add" style="border-radius:10px"/>
+            <input type="submit" value="Edit" style="border-radius:10px"/>
             <br>
         </form>
     </fieldset>

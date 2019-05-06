@@ -14,7 +14,6 @@ public class ProductForm {
     private String measure;
     private int valueOfMeasure;
 
-
     @Override
     public String toString() {
         return "ProductForm{" +
@@ -26,15 +25,12 @@ public class ProductForm {
                 '}';
     }
 
-    public ProductForm() {
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof ProductForm)) return false;
-        ProductForm product = (ProductForm) o;
-        return Objects.equals(getId(), product.getId());
+        ProductForm that = (ProductForm) o;
+        return Objects.equals(getId(), that.getId());
     }
 
     @Override
@@ -76,6 +72,9 @@ public class ProductForm {
 
     public int getValueOfMeasure() {
         return valueOfMeasure;
+    }
+
+    public ProductForm() {
     }
 
     public void setValueOfMeasure(int valueOfMeasure) {

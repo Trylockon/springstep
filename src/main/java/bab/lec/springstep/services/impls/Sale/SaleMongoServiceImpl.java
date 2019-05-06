@@ -30,8 +30,8 @@ public class SaleMongoServiceImpl implements ISaleService {
     }
 
     @Override
-    public Sale delete(String id) {
-        return this.delete(id);
+    public void delete(String id) {
+        this.repository.deleteById(id);
     }
 
     @Override

@@ -30,8 +30,8 @@ public class ClientMongoServiceImpl implements IClientService {
     }
 
     @Override
-    public Client delete(String id) {
-        return this.delete(id);
+    public void delete(String id) {
+        this.repository.deleteById(id);
     }
 
     @Override

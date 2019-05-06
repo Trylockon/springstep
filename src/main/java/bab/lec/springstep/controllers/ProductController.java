@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -40,6 +41,50 @@ public class ProductController {
     public String addStudent(Model model, @ModelAttribute("productForm") ProductForm productForm){
         Product newProduct = new Product(productForm.getId(), productForm.getName(), productForm.getPrice(), productForm.getMeasure(), productForm.getValueOfMeasure());
         productService.create(newProduct);
+        model.addAttribute("products", productService.getAll());
+        return "product";
+    }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public String deleteProduct(Model model, @PathVariable("id") String id){
+
+        productService.delete(id);
+
+        model.addAttribute("products", productService.getAll());
+        return "product";
+    }
+
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String editProduct(Model model, @PathVariable("id") String id){
+
+        Product product = productService.get(id);
+
+
+        ProductForm productForm = new ProductForm();
+
+        productForm.setId(product.getId());
+        productForm.setName(product.getName());
+        productForm.setPrice(product.getPrice());
+        productForm.setMeasure(product.getMeasure());
+        productForm.setValueOfMeasure(product.getValueOfMeasure());
+        model.addAttribute("productForm", productForm);
+        return "editProduct";
+    }
+
+    @RequestMapping(value = "edit/{id}", method = RequestMethod.POST)
+    public String editProduct(Model model,
+                           @ModelAttribute("productForm") ProductForm productForm,
+                           @PathVariable("id") String id){
+
+        Product product = new Product();
+
+        product.setId(productForm.getId());
+        product.setName(productForm.getName());
+        product.setPrice(productForm.getPrice());
+        product.setMeasure(productForm.getMeasure());
+        product.setValueOfMeasure(productForm.getValueOfMeasure());
+        productService.update(product);
+        model.addAttribute("productForm", productForm);
         model.addAttribute("products", productService.getAll());
         return "product";
     }

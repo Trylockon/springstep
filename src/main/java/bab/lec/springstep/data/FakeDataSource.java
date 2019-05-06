@@ -16,7 +16,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collector;
 
 @Configuration
 public class FakeDataSource {
@@ -52,23 +51,22 @@ public class FakeDataSource {
     );
     private List<Sale> sales = new ArrayList<>(
             Arrays.asList(
-                   new Sale(products.get(0),clients.get(0), LocalDate.now().minusDays(7),LocalDate.now(),2),
-                   new Sale(products.get(1),clients.get(1), LocalDate.of(2017,11,11)
+                   new Sale(products.get(0), LocalDate.now().minusDays(7),LocalDate.now(),2),
+                   new Sale(products.get(1), LocalDate.of(2017,11,11)
                            ,LocalDate.of(2017,11,16),1),
-                   new Sale(products.get(3),clients.get(2), LocalDate.of(2018,4,12)
+                   new Sale(products.get(3), LocalDate.of(2018,4,12)
                            ,LocalDate.of(2018,5,1),5),
-                   new Sale(products.get(2),clients.get(3), LocalDate.of(2019,03,10)
+                   new Sale(products.get(2), LocalDate.of(2019,03,10)
                            ,LocalDate.of(2019,03,15),2)
             )
     );
-    private List<OrderBook> orderBooks = new ArrayList<>(
+    List<OrderBook> orderBooks = new ArrayList<>(
             Arrays.asList(
-                    new OrderBook(sales.get(0)),
-                    new OrderBook(sales.get(1)),
-                    new OrderBook(sales.get(2)),
-                    new OrderBook(sales.get(3))
-            )
-    );
+       new OrderBook(sales.get(0)),
+       new OrderBook(sales.get(1)),
+       new OrderBook(sales.get(2)),
+       new OrderBook(sales.get(3))
+    ));
 
     public List<Product> getProducts() {
         return products;
@@ -79,10 +77,16 @@ public class FakeDataSource {
     public List<Sale> getSales() {
         return sales;
     }
+    public List<OrderBook> getOrderBooks(){
+        return orderBooks;
+    }
 
     @PostConstruct
     void init() {
         clients.get(0).setOrderBook(orderBooks.get(0));
+        clients.get(1).setOrderBook(orderBooks.get(1));
+        clients.get(2).setOrderBook(orderBooks.get(2));
+        clients.get(3).setOrderBook(orderBooks.get(3));
         productRepository.deleteAll();
         productRepository.saveAll(products);
         clientRepository.deleteAll();

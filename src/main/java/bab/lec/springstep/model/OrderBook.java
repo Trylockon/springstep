@@ -1,23 +1,29 @@
 package bab.lec.springstep.model;
 
-import org.springframework.core.annotation.Order;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Objects;
 
-@Order
+@Document
 public class OrderBook {
     @Id
-    private String entryId;
+    private String id;
     private Sale sale;
 
-
-    public String getEntryId() {
-        return entryId;
+    public OrderBook(Sale sale) {
+        this.sale = sale;
     }
 
-    public void setEntryId(String entryId) {
-        this.entryId = entryId;
+    public OrderBook() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public Sale getSale() {
@@ -28,38 +34,29 @@ public class OrderBook {
         this.sale = sale;
     }
 
-    public OrderBook() {
-    }
-
-    @Override
-    public String toString() {
-        return "OrderBook{" +
-                "entryId='" + entryId + '\'' +
-                ", sale=" + sale +
-                '}';
-    }
-
-    public OrderBook(Sale sale) {
-        this.sale = sale;
-    }
-
-    public OrderBook(String entryId, Sale sale) {
-        this.entryId = entryId;
-        this.sale = sale;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof OrderBook)) return false;
         OrderBook orderBook = (OrderBook) o;
-        return getEntryId().equals(orderBook.getEntryId());
+        return Objects.equals(getId(), orderBook.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getEntryId());
+        return Objects.hash(getId());
+    }
+
+    public OrderBook(String id, Sale sale) {
+        this.id = id;
+        this.sale = sale;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderBook{" +
+                "id='" + id + '\'' +
+                ", sale=" + sale +
+                '}';
     }
 }
-
-
